@@ -42,7 +42,7 @@ header h1 {
 
 }
 
-  .btn-grid {
+.btn-grid {
       display: grid;
       gap: 15px;
       margin: 25px 0;
@@ -58,11 +58,19 @@ header h1 {
     color: white
   }
   
-  .btn:hover {
+ .btn:hover {
     background-color: var(--secondaryButton);
   }
 
 .hide {
     display: none;
+}
+
+.qText {
+    font-size: 2rem;
+}
+
+.aText {
+    text-align: left;
 }
 
