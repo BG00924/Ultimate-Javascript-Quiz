@@ -1,12 +1,7 @@
-// variable
+// variables
 let currentQuestion;
-
-//reference variable
 var intro = document.getElementById('intro');
-
-var pageContentEl = document.querySelector("#content")
 var timerEl = document.getElementById('seconds');
-//var mainEl = document.getElementById("main");
 var startBtn = document.getElementById('start-btn');
 var container = document.getElementById('container')
 var questionContainer = document.getElementById('question-container');
@@ -25,11 +20,7 @@ var showingScore = document.getElementById('saved-score');
 var goBack = document.getElementById('go-back-btn');
 var clearBtn = document.getElementById('clear-btn');
 var timer = document.getElementById('countdown');
-
 var timeLeft = 75;
-
-
-
 var questions = [
     {
         question: "Which allows you to store multiple values in a single reference?",
@@ -87,54 +78,34 @@ var questions = [
     }
 ];
 
-
-
-
-
-
+//function that begins the game
 function beginGame() {
     //console.log('started')
     intro.classList.add('hide')
-    
     currentQuestion = 0
-
     questionContainer.classList.remove('hide')
-
-    // var timeInterval = setInterval(function() {
-    //     if (timeLeft > 0 && currentQuestion < 5) {
-    //         //timerEl.textContent = timeLeft;
-    //         timeLeft--;
-    //         timerEl.textContent = timeLeft;
-    //     }  else {
-    //         //timerEl.textContent = "Time's up!";
-    //         clearInterval(timeInterval);
-    //         //score();
-    //     }
-    // }, 1000);
-    
     countdown();
     nextQuestion();
 }
 
+//function that generates the questions
 function nextQuestion() {
     questionEl.innerHTML = ''
     answerBtnEl.innerHTML = ''
-    //rightOrWrong.innerHTML = ''
     showQuestion();
     
 }
 
+//function that populates the questsions and answers
 function showQuestion() {
     if(currentQuestion === questions.length) {
         score();
-        //clearInterval(timeInterval);
     }
     else {
         questionEl.innerText = questions[currentQuestion].question;
         questionEl.classList.add('qText')
         questions[currentQuestion].answers.forEach((answer, i) => {
             var id = i + 1
-            //console.log(id);
             var button = document.createElement('button')
             button.innerText = answer.text;
             button.classList.add('btn', 'aText');
@@ -145,12 +116,10 @@ function showQuestion() {
     }  
 }
 
-
+//function to tell the user if they got the last question right and subtract time if wrong
 function answerChosen() {
     var selectedBtn = event.target.id
     var correct = questions[currentQuestion].answers.find(answers => answers.correct === true)
-    //console.log(selectedBtn);
-    //console.log(correct);
     if(selectedBtn == correct.text[0]) {
         //console.log('correct')
         rightOrWrong.innerHTML = ''
@@ -172,7 +141,7 @@ function answerChosen() {
     nextQuestion();
 }
 
-// Timer that counts down from 75
+// function that provides the timer
 function countdown() {
     var timeInterval = setInterval(function() {
         if (timeLeft > 0 && currentQuestion < questions.length) {
@@ -185,6 +154,7 @@ function countdown() {
     }, 1000);
 };
 
+//function that generates the users score at the end of the quiz
 function score() {
     container.classList.add('flex-c')
     intro.classList.add('hide')
@@ -195,11 +165,14 @@ function score() {
     finalScore.innerText = "Your final score is " + timeLeft + "."
 };
 
+//function that saves the score
 function saveScore() {
     localStorage.setItem('timeLeft', timeLeft);
     localStorage.setItem('initials', initials.value);
+    back();
 };
 
+//function that displays the saved score from previous quiz
 function displayScore() {
     intro.classList.add('hide')
     questionContainer.classList.add('hide')
@@ -216,18 +189,18 @@ function displayScore() {
     
 }
 
+//function that takes the users back from the saved scores to beginning of the quiz
 function back() {
     window.location.reload();
 }
 
+//function that delets saved score
 function deleteScore() {
     localStorage.clear(); 
     displayScore();
 }
 
-
-
-
+//event listeners that initiate the appropriate functions to the buttons and score link 
 initialBtn.addEventListener("click", saveScore);
 viewScore.addEventListener("click", displayScore);
 goBack.addEventListener("click", back);

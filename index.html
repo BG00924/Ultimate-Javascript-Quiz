@@ -15,6 +15,7 @@
         <div id="countdown" class="countdown">Timer: <span id="seconds"></span></div>
     </header>
     <main id="container" class="container">
+        <!--intro to quiz where user can begin it and start timer-->
         <div id="intro" class="">
             <h1>Coding Quiz Challenge</h1>
             <p>
@@ -24,11 +25,13 @@
             </p>
             <button id="start-btn" class="start-btn btn">Start Quiz</button>
         </div>
+        <!--displays the saved score when score link is selected-->
         <div id="savedScore" class="hide">
             <h1>Score</h1>
             <div id="saved-score" class="score"></div>
             <button id="go-back-btn" class="btn submitBtn">Go Back</button>  <button id="clear-btn" class="btn submitBtn">Clear score</button>
         </div>
+        <!--displays the end of quiz elements that show the user their score-->
         <div id="currentScore" class="hide">
             <h1 id="done"></h1>
             <div id="score" class="score"></div>
@@ -40,6 +43,7 @@
                 </button>
             </div>
         </div>
+        <!--elements that contain questions/answers-->
         <div id= "question-container" class="hide">
             <div id="question"></div>
             <div id="answer-btn" class="btn-grid"></div>
