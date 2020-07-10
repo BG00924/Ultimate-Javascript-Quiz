@@ -10,7 +10,7 @@
 <body>
     <header>
         <h1>
-            <a href="#">View high score. </a>
+            <a href="#" id="viewScore">View score. </a>
         </h1>
         <div id="countdown" class="countdown">Timer: <span id="seconds"></span></div>
     </header>
@@ -23,6 +23,22 @@
                 Keep in mind that incorrect answers will penalize your score/time by ten seconds!
             </p>
             <button id="start-btn" class="start-btn btn">Start Quiz</button>
+        </div>
+        <div id="savedScore" class="hide">
+            <h1>Score</h1>
+            <div id="saved-score" class="score"></div>
+            <button id="go-back-btn" class="btn submitBtn">Go Back</button>  <button id="clear-btn" class="btn submitBtn">Clear score</button>
+        </div>
+        <div id="currentScore" class="hide">
+            <h1 id="done"></h1>
+            <div id="score" class="score"></div>
+            <div id="initials">
+                Enter Initials: 
+                <input type='text' id='newInitials' value='' /> 
+                <button id='initial-btn' class='btn submitBtn'>
+                    Submit
+                </button>
+            </div>
         </div>
         <div id= "question-container" class="hide">
             <div id="question"></div>

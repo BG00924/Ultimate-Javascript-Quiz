@@ -57,6 +57,13 @@ header h1 {
     border-radius: 5px;
     color: white
   }
+
+.submitBtn {
+    max-height: 200px;
+    font-size: 0.75rem;
+    padding: 2.5px 5px;
+    border-radius: 5px;
+  }
   
  .btn:hover {
     background-color: var(--secondaryButton);
@@ -72,5 +79,17 @@ header h1 {
 
 .aText {
     text-align: left;
+}
+
+.flex-c {
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.score {
+    margin-bottom: 15px;
 }
 
